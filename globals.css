@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-creme: #f5efe3;
+  --color-papier: #fbf8f1;
+  --color-encre: #18211d;
+  --color-sapin: #1f3b30;
+  --color-brique: #c4381f;
+  --color-sable: #ddd2bd;
+  --color-gris: #5f5e56;
+  --font-display: var(--font-serif), Georgia, serif;
+  --font-sans: var(--font-body), system-ui, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-creme);
+  color: var(--color-encre);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+/* Le détail signature : le bandeau de la enseigne de barbier */
+.pole {
+  height: 8px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--color-brique) 0 10px,
+    var(--color-papier) 10px 20px,
+    var(--color-sapin) 20px 30px,
+    var(--color-papier) 30px 40px
+  );
+}
+
+@layer components {
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--color-encre);
+  border-radius: 2px;
+  background: var(--color-brique);
+  color: var(--color-papier);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 0 var(--color-encre);
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 var(--color-encre);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.btn-ghost {
+  background: var(--color-papier);
+  color: var(--color-encre);
+}
+
+.card {
+  background: var(--color-papier);
+  border: 2px solid var(--color-encre);
+  border-radius: 2px;
+}
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brique);
+  outline-offset: 2px;
+}
